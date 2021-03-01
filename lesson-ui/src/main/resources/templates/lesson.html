@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header :: head"></head>
+
+<body class="bg-light">
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="d-flex">
+	<div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	<div class="content p-4">
+		<h2 class="mb-4">Lesson list</h2>
+		
+		<div class="card mb-4">
+			
+			<div class="card-body">
+				<form class="form-group" th:action="@{/lesson/create}">
+					<button type="submit" class="btn btn-primary">Create new</button>
+				</form>
+				
+				<table id="lessons" class="table table-hover" cellspacing="0" width="100%">
+					<thead>
+					<tr>
+						<th>Id</th>
+						<th>Lesson name</th>
+						<th>Description</th>
+						<th>Files</th>
+						<th class="actions">Actions</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr th:each="le : ${lesson}">
+						<td th:text="${lesson.lessonName}">lesson</td>
+						<td th:text="${lesson.description}"></td>
+						<!--						<td th:text="${lesson.fileDescriptors}"></td>-->
+					</tr>
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+<script th:src="@{/js/datatables.min.js}"></script>
+<script>
+    $(document).ready(function () {
+        $('#lessons').DataTable();
+    });
+</script>
+
+</body>
+</html>

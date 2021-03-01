@@ -1,0 +1,8 @@
+ru/mrslyredfox/persist/repo/FileDescriptionRepository.class
+ru/mrslyredfox/persist/model/User.class
+ru/mrslyredfox/persist/model/Role.class
+ru/mrslyredfox/persist/repo/UserRepository.class
+ru/mrslyredfox/persist/model/FileDescriptor.class
+ru/mrslyredfox/persist/repo/LessonRepository.class
+ru/mrslyredfox/persist/repo/RoleRepository.class
+ru/mrslyredfox/persist/model/Lesson.class

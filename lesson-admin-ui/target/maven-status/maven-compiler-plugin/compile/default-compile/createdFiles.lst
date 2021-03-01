@@ -1,0 +1,10 @@
+ru/mrslyredfox/service/UserService.class
+ru/mrslyredfox/error/NotFoundException.class
+ru/geekbrains/security/SecurityConfig.class
+ru/mrslyredfox/controller/MainController.class
+ru/mrslyredfox/service/UserServiceImpl.class
+ru/mrslyredfox/controller/repr/UserRepr.class
+ru/mrslyredfox/ShopAdminUiApplication.class
+ru/mrslyredfox/controller/UserController.class
+ru/mrslyredfox/error/ServerInternalException.class
+ru/mrslyredfox/security/UserAuthService.class

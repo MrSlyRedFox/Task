@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/header :: head"></head>
+
+<body class="bg-light">
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="d-flex">
+	<div th:replace="fragments/sidebar :: sidebar"></div>
+	
+	<div class="content p-4">
+		<h2 class="mb-4">Files list</h2>
+		
+		<div class="card mb-4">
+			
+			<div class="card-body">
+				<form class="form-group" th:action="@{/file/create}">
+					<button type="submit" class="btn btn-primary">Edit file name</button>
+				</form>
+				
+				<table id="files" class="table table-hover" cellspacing="0" width="100%">
+					<thead>
+					<tr>
+						<th>File name</th>
+						<th class="actions">Actions</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr th:each="file : ${files}">
+						<td th:text="${file.fileName}">file</td>
+						<td>
+							<a th:href="@{/file/{id}/edit(id=${file.file_id})}" class="btn btn-icon btn-pill btn-primary" data-toggle="tooltip" title="Edit">
+								<i class="fa fa-fw fa-edit"></i>
+							</a>
+							<form th:action="@{/file/{id}/delete(id=${file.file_id})}" th:method="delete" class="d-inline">
+								<button class="btn btn-icon btn-pill btn-danger" data-toggle="tooltip" title="Delete">
+									<i class="fa fa-fw fa-trash"></i>
+								</button>
+							</form>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<form method="POST" enctype="multipart/form-data"
+				      action="/upload">
+					File to upload: <input type="file" name="file"><br /> Name: <input
+						type="text" name="name"><br /> <br /> <input type="submit"
+					                                                 value="Upload"> Press here to upload the file!
+				</form>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+<script th:src="@{/js/datatables.min.js}"></script>
+<script>
+    $(document).ready(function () {
+        $('#files').DataTable();
+    });
+</script>
+
+</body>
+</html>
